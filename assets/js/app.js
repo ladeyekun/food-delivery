@@ -1,11 +1,47 @@
 'use strict';
 
-import {select, listen} from "./util.js";
+import {API_KEY, select, listen, create, sleep} from "./util.js";
 
-mapboxgl.accessToken = 'pk.eyJ1IjoiZWhyZW4tc3RyaWZsaW5nIiwiYSI6ImNscTN3dmZoYjAxMG4ydm14ZnNjaWtqOW0ifQ.PtNGzOxZJvB9XIJGME7k3Q';
+const mapContainer = select('.map-container');
+
+mapboxgl.accessToken = API_KEY;
+
+const geoJSON = {
+  type: 'FeatureCollection',
+  features: [
+    {
+      type: 'Feature',
+      geometry: {
+        type: 'Point',
+        coordinates: [-77.032, 38.913]
+      },
+      properties: {
+        title: 'Mapbox',
+        description: 'Washington DC.'
+      }
+    }
+  ]
+};
+
 const map = new mapboxgl.Map({
   container: 'map-container',
   style: 'mapbox://styles/mapbox/streets-v12',
   center: [-74.5, 40],
   zoom: 3
 });
+
+function setLocationMarker() {
+  for (const feature of geoJSON.features) {
+    const el = create('div');
+    el.className = 'marker';
+  
+    new mapboxgl.Marker(el).setLngLat(feature.geometry.coordinates).addTo(map);
+  }
+}
+
+setLocationMarker();
+
+
+
+
+
