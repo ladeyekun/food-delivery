@@ -48,8 +48,8 @@
                 <h2>Order delivery near you</h2>
                 <p>We are closer to you than you think</p>
                 <div class="hero-banner-buttons">
-                    <a class="primary" href="#">Know more</a>
-                    <a class="secondary" href="#">Subscribe</a>
+                    <a class="button primary" href="#">Know more</a>
+                    <a class="button secondary" href="#">Subscribe</a>
                 </div>
             </div>
         </div>
@@ -75,9 +75,50 @@
     </section>
     <section class="map">
       <div class="container">
+        <form class="flex flex-center gap-10 location-frm">
+          <input type="text" class="" placeholder="Enter delivery address">
+          <select placeholder="Delivery time">
+            <option></option>
+            <option>Deliver now</option>
+            <option>Schedule for later</option>
+          </select>
+          <button class="button primary location">View location</button>
+        </form>
         <div id="map-container" class="map-container"></div>
       </div>
     </section>
     </main>
-  </body>
+    <footer>
+      <div class="container flex flex-between height-100">
+        <div class="socials grid grid-center">
+          <ul class="flex gap-20">
+            <li>
+              <a href="#">
+                <div class="grid grid-center">
+                  <i class="fa-brands fa-facebook-f"></i>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <div class="grid grid-center">
+                  <i class="fa-brands fa-instagram"></i>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <div class="grid grid-center">
+                  <i class="fa-brands fa-x-twitter"></i>
+                </div>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="copyright">
+          <p>All rights reserved. Food delivery &copy; 2024</p>
+        </div>
+      </div>
+  </footer>        
+</body>
 </html>

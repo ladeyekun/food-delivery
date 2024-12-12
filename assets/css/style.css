@@ -34,6 +34,10 @@ body {
   justify-content: space-between;
 }
 
+.flex-center {
+  justify-content: center;
+}
+
 .grid {
   display: grid;
 }
@@ -160,6 +164,7 @@ header {
   .hero-banner-buttons {
     margin-top: 45px;
 
+    /*
     a {
       padding: 10px 25px;
       border-radius: 6px; 
@@ -187,7 +192,36 @@ header {
     a.secondary:hover {
       color: #007fff;
     }
+    */
   }
+}
+
+.button {
+  padding: 10px 25px;
+  border-radius: 6px; 
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  transition: all 0.25s ease-in-out;  
+  border: 1px solid rgb(0 0 0 / 2%);
+}
+
+.button.primary {
+  background-color: #1489ff;
+  color: #fff;
+}
+
+.button.secondary {
+  background-color: #fff;
+  color: #1489ff;
+}
+
+.button.primary:hover {
+  background-color: #007fff;
+}
+
+.button.secondary:hover {
+  color: #007fff;
 }
 
 section {
@@ -208,7 +242,7 @@ section.food-vendor {
   flex: 0 0 auto;
   width: calc(33% - 20px);
   border-radius: 5px;
-  box-shadow: 2px 2px 4px rgb(0 0 0 / 10%);
+  box-shadow: 1px 1px 2px rgb(0 0 0 / 5%);
 
   img {
     width: 100%;
@@ -237,3 +271,80 @@ section.map {
   cursor: pointer;  
 }
 
+.location-frm { 
+  margin-bottom: 30px;
+}
+
+input[type=text] {
+  width: 250px;
+  height: 46px;
+  padding: 0 15px;
+  font-size: 16px;
+  color: #000;
+  background-color: #fff;
+  border: 1px solid rgb(0 0 0 / 2%);
+  border-radius: 5px;
+}
+
+select {
+  height: 46px;
+  width: 250px;
+  padding: 0 5px;
+  font-size: 17px;
+  color: #222;
+  background: #fff;
+  border: 1px solid rgb(255 255 255 / 2%);
+  border-radius: 5px;
+  transition: all 0.25s ease-in-out;
+}
+
+
+
+
+/**************/
+/*  Footer    */
+/**************/
+
+footer {
+  height: 60px;
+  background-color: #a09d9d;
+
+  ul {
+      list-style: none;
+
+      div {
+          width: 35px;
+          height: 35px;
+          border-radius: 50%;
+          border: 1px solid rgb(0 0 0 / 20%);
+      }
+  }
+
+  .copyright {
+      line-height: 60px;
+      font-size: 16px;
+      font-weight: 400;
+      color: rgb(0 0 0 / 80%);
+  }
+
+  a {
+      color: rgb(0 0 0 / 60%);
+      font-size: var(--app-footer-font-size);
+  }
+
+  a:hover div {
+      background-color: #fff;
+  }
+
+  a:hover .fa-facebook-f {
+      color: #0866ff;
+  }
+
+  a:hover .fa-instagram {
+      color: #fd07b0;
+  }
+
+  a:hover .fa-x-twitter {
+      color: #000;
+  }
+}
