@@ -2,13 +2,12 @@
 
 import {select, listen, create, sleep} from "./util.js";
 
-const API_KEY = 'pk.eyJ1IjoiZWhyZW4tc3RyaWZsaW5nIiwiYSI6ImNscTN3dmZoYjAxMG4ydm14ZnNjaWtqOW0ifQ.PtNGzOxZJvB9XIJGME7k3Q';
+const MAPBOX_TOKEN_KEY = 'pk.eyJ1IjoiZWhyZW4tc3RyaWZsaW5nIiwiYSI6ImNscTN3dmZoYjAxMG4ydm14ZnNjaWtqOW0ifQ.PtNGzOxZJvB9XIJGME7k3Q';
 const mapContainer = select('.map-container');
 const locationBtn = select('.location');
 const options = { enableHighAccuracy: true };
 
-//mapboxgl.accessToken = API_KEY;
-
+/*
 const geoJSON = {
   type: 'FeatureCollection',
   features: [
@@ -25,12 +24,12 @@ const geoJSON = {
     }
   ]
 };
-
+*/
 const map = new mapboxgl.Map({
-  accessToken: API_KEY,
+  accessToken: MAPBOX_TOKEN_KEY,
   container: mapContainer,
   style: 'mapbox://styles/mapbox/streets-v12',
-  center: [-74.5, 40],
+  center: [3.336510,6.598233],
   zoom: 3
 });
 /*
@@ -45,13 +44,29 @@ function setLocationMarker() {
 }
   */
 
+function loadCurrentLocation() {
+  if ('geolocation' in navigator) {
+    navigator.geolocation.getCurrentPosition(
+      setLocationMarker, errorHandler, options
+    );
+  } else {
+   // display error that geolocation is not supported
+  }
+}
+
 function setLocationMarker(position) {
   let { latitude, longitude } = position.coords;
 
   const el = create('div');
   el.className = 'marker';
 
-  new mapboxgl.Marker(el).setLngLat([longitude, latitude]).addTo(map);
+  new mapboxgl.Marker(el)
+  .setLngLat([longitude, latitude])
+  .addTo(map);
+
+  setTimeout(() => {
+    map.flyTo({center: [longitude, latitude], zoom: 15, speed: 0.3});
+  }, 1000);
 }
 
 function errorHandler() {
@@ -59,20 +74,11 @@ function errorHandler() {
 }
 
 listen('load', window, () => {
-  //setLocationMarker();
+  loadCurrentLocation();
 });
 
 listen('click', locationBtn, () => {
-  if ('geolocation' in navigator) {
-    const el = create('div');
-    el.className = 'marker';
-    
-    navigator.geolocation.getCurrentPosition(
-      setLocationMarker, errorHandler, options
-    );
-  } else {
-   // display error that geolocation is not supported
-  }
+
 });
 
 
