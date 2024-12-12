@@ -93,14 +93,14 @@ header {
     }
 
     h2 {
-      font-size: 18px;
-      font-weight: 600;
+      font-size: 22px;
+      font-weight: 500;
       line-height: 60px;
     }
   }
 
   .nav {
-    height: 80px;
+    height: 60px;
     width: calc(100% - 200px);
     text-align: right;
   }
@@ -113,7 +113,7 @@ header {
 
       li {
         margin-right: 35px;
-        line-height: 80px;
+        line-height: 60px;
         font-size: 16px;
       }
 
@@ -123,7 +123,7 @@ header {
       }
 
       a:hover {
-        color: #f4f5f7;
+        color: #267cb5;
       }
     }
   }
@@ -164,39 +164,14 @@ header {
   .hero-banner-buttons {
     margin-top: 45px;
 
-    /*
     a {
-      padding: 10px 25px;
-      border-radius: 6px; 
-      font-size: 14px;
-      font-weight: 600;
-      text-transform: uppercase;
-      transition: all 0.25s ease-in-out;
+      display: inline-block
     }
-
-    a.primary {
-      background-color: #1489ff;
-      color: #fff;
-    }
-
-    a.primary:hover {
-      background-color: #007fff;
-    }
-
-    a.secondary {
-      background-color: #fff;
-      color: #1489ff;
-      margin-left: 12px;
-    }
-
-    a.secondary:hover {
-      color: #007fff;
-    }
-    */
   }
 }
 
 .button {
+  height: 46px;
   padding: 10px 25px;
   border-radius: 6px; 
   font-size: 14px;
@@ -244,6 +219,11 @@ section.food-vendor {
   border-radius: 5px;
   box-shadow: 1px 1px 2px rgb(0 0 0 / 5%);
 
+  a {
+    text-decoration: none;
+    color: #fff;
+  }
+
   img {
     width: 100%;
     border-radius: 4px 4px 0 0;
@@ -276,7 +256,7 @@ section.map {
 }
 
 input[type=text] {
-  width: 250px;
+  width: 400px;
   height: 46px;
   padding: 0 15px;
   font-size: 16px;
@@ -307,7 +287,7 @@ select {
 
 footer {
   height: 60px;
-  background-color: #a09d9d;
+  background-color: #cacaca;
 
   ul {
     list-style: none;
@@ -348,3 +328,4 @@ footer {
     color: #000;
   }
 }
+
